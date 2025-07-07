@@ -132,7 +132,9 @@ export default function Squad() {
           <div className="text-lg font-semibold text-[#22577a] mb-2">
             FW (공격수)
           </div>
-          <p className="text-[#22577a] mb-2">클럽 주장, 철통 같은 방어가 장점</p>
+          <p className="text-[#22577a] mb-2">
+            클럽 주장, 철통 같은 방어가 장점
+          </p>
           <RadarChart stats={[70, 92, 60, 80, 95, 85]} />
         </div>
         <div className="bg-[#e3f0ff] rounded-2xl shadow-xl border-2 border-[#b3d8ff] flex flex-col items-center p-6">
@@ -144,7 +146,7 @@ export default function Squad() {
               style={{ objectFit: "cover" }}
               className="rounded-xl border-4 border-[#3a6ea5] shadow-lg"
             />
-          </div재
+          </div>
           <h2 className="text-2xl font-bold text-[#3a6ea5] mb-1">이승재</h2>
           <div className="text-lg font-semibold text-[#22577a] mb-2">
             GK (골키퍼)
