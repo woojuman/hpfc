@@ -1,103 +1,115 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="w-full flex flex-col items-center gap-12 bg-[#e3f0ff]">
+      {/* 파스텔 하늘색 히어로 섹션 */}
+      <section className="relative w-full min-h-[65vh] flex items-center justify-center overflow-hidden bg-[#b3d8ff]">
+        {/* stadium.png (축구장) 배경 */}
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/stadium.png"
+          alt="축구장 배경"
+          fill
+          style={{ objectFit: "contain" }}
           priority
+          className="z-0"
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* main.png (로고/마스코트 등) 오버레이, 반투명 */}
+        <Image
+          src="/main.png"
+          alt="대문 이미지"
+          fill
+          style={{ objectFit: "contain" }}
+          priority
+          className="z-10"
+        />
+        {/* 밝은 오버레이(투명도 낮춤) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#b3d8ff66] via-[#b3d8ff33] to-transparent z-20" />
+        {/* 중앙 타이틀만 */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-30 px-4">
+          <h1
+            className="text-5xl md:text-6xl font-extrabold text-[#3a6ea5] drop-shadow-2xl text-center"
+            style={{ textShadow: "0 4px 24px #fff, 0 1px 0 #b3d8ff" }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            하늘평화풋살클럽
+          </h1>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* 하단 소개문구 (2줄, 짧게) */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 w-full flex justify-center px-4">
+          <p
+            className="text-base md:text-xl max-w-xl leading-relaxed text-[#22577a] font-semibold bg-[#e3f0ffcc] rounded-xl px-6 py-3 shadow-xl backdrop-blur-md text-center"
+            style={{ textShadow: "0 2px 8px #fff" }}
+          >
+            모두가 함께 즐기는 풋살, 하늘평화풋살클럽에서 시작하세요.
+            <br />
+            건강한 운동과 따뜻한 교류, 지금 바로 함께해요!
+          </p>
+        </div>
+      </section>
+
+      {/* 카드형 주요 메뉴 */}
+      <section className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-2 -mt-12 z-30 relative">
+        <Link
+          href="/squad"
+          className="group bg-[#e3f0ff] rounded-2xl shadow-xl border-2 border-[#b3d8ff] hover:scale-105 hover:shadow-2xl transition-all flex flex-col items-center p-6 min-h-[180px]"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <span className="text-2xl font-bold text-[#3a6ea5] mb-2">
+            선수단 소개
+          </span>
+          <span className="text-[#22577a]">
+            클럽의 주요 선수 명단과 포지션을 확인하세요.
+          </span>
+        </Link>
+        <Link
+          href="/schedule"
+          className="group bg-[#e3f0ff] rounded-2xl shadow-xl border-2 border-[#b3d8ff] hover:scale-105 hover:shadow-2xl transition-all flex flex-col items-center p-6 min-h-[180px]"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <span className="text-2xl font-bold text-[#3a6ea5] mb-2">
+            시합 일정
+          </span>
+          <span className="text-[#22577a]">다가오는 경기 일정을 한눈에!</span>
+        </Link>
+        <Link
+          href="/board"
+          className="group bg-[#e3f0ff] rounded-2xl shadow-xl border-2 border-[#b3d8ff] hover:scale-105 hover:shadow-2xl transition-all flex flex-col items-center p-6 min-h-[180px]"
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <span className="text-2xl font-bold text-[#3a6ea5] mb-2">게시판</span>
+          <span className="text-[#22577a]">공지사항 및 소식을 확인하세요.</span>
+        </Link>
+        <Link
+          href="/join"
+          className="group bg-[#e3f0ff] rounded-2xl shadow-xl border-2 border-[#b3d8ff] hover:scale-105 hover:shadow-2xl transition-all flex flex-col items-center p-6 min-h-[180px]"
+        >
+          <span className="text-2xl font-bold text-[#3a6ea5] mb-2">
+            가입 문의
+          </span>
+          <span className="text-[#22577a]">가입 및 문의는 이곳에서!</span>
+        </Link>
+      </section>
+
+      {/* 클럽 비전/연혁 카드 */}
+      <section className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 px-2">
+        <div className="bg-[#b3d8ff]/80 rounded-2xl p-8 shadow-2xl border border-[#3a6ea5] flex flex-col items-center">
+          <h2 className="text-2xl font-semibold mb-2 text-[#3a6ea5] drop-shadow-lg">
+            클럽 비전
+          </h2>
+          <ul className="list-disc list-inside text-left text-[#22577a]">
+            <li>건강한 신체와 밝은 마음을 함께!</li>
+            <li>공정한 경기, 즐거운 소통</li>
+            <li>지역사회와 함께 성장하는 클럽</li>
+          </ul>
+        </div>
+        <div className="bg-[#b3d8ff]/80 rounded-2xl p-8 shadow-2xl border border-[#3a6ea5] flex flex-col items-center">
+          <h2 className="text-2xl font-semibold mb-2 text-[#3a6ea5] drop-shadow-lg">
+            연혁
+          </h2>
+          <ul className="list-disc list-inside text-left text-[#22577a]">
+            <li>2024년 3월: 하늘평화풋살클럽 창단</li>
+            <li>2024년 4월: 첫 공식 시합 개최</li>
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }
